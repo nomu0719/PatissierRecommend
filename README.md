@@ -18,12 +18,12 @@
 パティシエの勉強として他のお店を知りたい方
 
 ## 設計書
-テーブル定義書と詳細設計. 
-https://docs.google.com/spreadsheets/d/1Uh5CKu-UoH0hYeFGtgEellKh7YGWoY1QOlK-nduhalo/edit?usp=sharing. 
-ER図. 
-https://drive.google.com/file/d/1pXEMS3K6XR65wK7MxOkpEZfOedFWJ6-s/view?usp=sharing. 
-ワイヤーフレーム. 
-https://cacoo.com/diagrams/4AkBpmvUDviUCZ4Z/B196D. 
+テーブル定義書と詳細設計
+https://docs.google.com/spreadsheets/d/1Uh5CKu-UoH0hYeFGtgEellKh7YGWoY1QOlK-nduhalo/edit?usp=sharing
+ER図
+https://drive.google.com/file/d/1pXEMS3K6XR65wK7MxOkpEZfOedFWJ6-s/view?usp=sharing
+ワイヤーフレーム
+https://cacoo.com/diagrams/4AkBpmvUDviUCZ4Z/B196D
 
 ## チャレンジ要素一覧
 https://docs.google.com/spreadsheets/d/1volxQIBXMSzUSM2uVBkjaJEAj4OixuH_tIHC_qWEDck/edit?usp=sharing
