@@ -28,7 +28,7 @@
 
 パティシエの勉強として他のお店を知りたい時
 
-#設計書
+# 設計書
 
 ## 機能一覧
 https://docs.google.com/spreadsheets/d/1volxQIBXMSzUSM2uVBkjaJEAj4OixuH_tIHC_qWEDck/edit?usp=sharing
