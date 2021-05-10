@@ -1,24 +1,41 @@
-# README
+# パティシエのおすすめパティスリー
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
+パティシエおすすめのケーキ店をランキング形式で見ることができるサイトです。
 
-Things you may want to cover:
+パティシエはおすすめのケーキ店を登録やレビューすることができます。
 
-* Ruby version
+一般のお客様はそれを参考にランキングでの表示や、店舗を行きたいリストに追加することができます。
 
-* System dependencies
+### サイトテーマ
+パティシエの選ぶ人気のケーキ店レビューサイト
 
-* Configuration
 
-* Database creation
+### テーマを選んだ理由
+自分自身パティシエをしていた際、先輩のおすすめのケーキ店に良く勉強に行っていました。
 
-* Database initialization
+業界の中にいる人間の評価のポイントや、注目するところが一般のお客様、特にケーキ好きな人の参考になるのではと考えました。
 
-* How to run the test suite
+今、誰でも気軽に評価しそれを参考にすることができる時代ですが、裏付けのある評価を参考にできるサイトが作りたかったからです。
 
-* Services (job queues, cache servers, search engines, etc.)
+### ターゲットユーザ
+ケーキ好きな一般のお客様
 
-* Deployment instructions
+ケーキ店の情報交換がしたいパティシエ
 
-* ...
+### 主な利用シーン
+特別な日に美味しいケーキを調べたい
+
+パティシエの勉強として他のお店を知りたい時
+
+# 設計書
+
+## 機能一覧
+https://docs.google.com/spreadsheets/d/1volxQIBXMSzUSM2uVBkjaJEAj4OixuH_tIHC_qWEDck/edit?usp=sharing
+
+## 開発環境
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9
