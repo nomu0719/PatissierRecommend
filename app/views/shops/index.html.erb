@@ -1,0 +1,9 @@
+<% @shops.each do |shop| %>
+<div>
+  <%= link_to shop_path(shop.id) do %>
+  <%= attachment_image_tag shop, :image %>
+  <% end %>
+  <P>店名: <%= shop.name %></P>
+  <p>住所: <%= shop.address %></p>
+</div>
+<% end %>

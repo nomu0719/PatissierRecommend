@@ -1,0 +1,9 @@
+<P>店名: <%= @shop.name %></P>
+<%= attachment_image_tag @shop, :image %>
+<p>住所: <%= @shop.address %></p>
+<p>TEL: <%= @shop.telephone_number %></p>
+<p>店舗概要: <%= @shop.introduction %></p>
+<p>URL: <%= @shop.url %></p>
+<% if @shop.patissier == current_patissier %>
+<%= link_to "削除する", shop_path(@shop), method: :delete %>
+<% end %>
