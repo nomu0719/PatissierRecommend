@@ -10,7 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_10_054914) do
+ActiveRecord::Schema.define(version: 2021_05_11_122400) do
+
+  create_table "comments", force: :cascade do |t|
+    t.integer "patissier_id"
+    t.integer "shop_id"
+    t.text "comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "favorites", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "post_image_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "patissiers", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -24,6 +39,13 @@ ActiveRecord::Schema.define(version: 2021_05_10_054914) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_patissiers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_patissiers_on_reset_password_token", unique: true
+  end
+
+  create_table "recommends", force: :cascade do |t|
+    t.integer "patissier_id"
+    t.integer "shop_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "shops", force: :cascade do |t|

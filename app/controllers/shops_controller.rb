@@ -9,13 +9,22 @@ class ShopsController < ApplicationController
     @shop.save
     redirect_to shops_path
   end
+  def edit
+    @shop = Shop.find(params[:id]) 
+  end
 
+  def update
+    shop = Shop.find(params[:id])
+    shop.update(shop_params)
+    redirect_to shop_path(shop)
+  end
   def index
     @shops = Shop.all
   end
 
   def show
     @shop = Shop.find(params[:id])
+    @comment = Comment.new
   end
 
   def destroy

@@ -4,4 +4,6 @@ class Patissier < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
     has_many :shops
+    has_many :comments, dependent: :destroy
+    has_many :recommends, dependent: :destroy
 end
