@@ -11,6 +11,6 @@ class FavoritesController < ApplicationController
     shop = Shop.find(params[:shop_id])
     favorite = current_user.favorites.find_by(shop_id: shop.id)
     favorite.destroy
-    redirect_to shop_path()
+    redirect_to shop_path(shop)
   end
 end
