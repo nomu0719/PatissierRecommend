@@ -1,6 +1,7 @@
 class Shop < ApplicationRecord
   belongs_to :patissier
   has_many :comments, dependent: :destroy
+  has_many :item_images, dependent: :destroy
   #パティシエ側おすすめ
   has_many :recommends, dependent: :destroy
   def recommend_by?(patissier)

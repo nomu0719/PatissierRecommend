@@ -12,6 +12,7 @@ Rails.application.routes.draw do
  root to: 'homes#top'
  
  resources :shops do
+   resources :item_images, only: [:create, :destroy]
    resources :comments, only: [:create, :destroy]
    resource :recommends, only: [:create, :destroy]
    resource :favorites, only: [:create, :destroy]

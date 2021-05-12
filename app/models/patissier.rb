@@ -6,4 +6,5 @@ class Patissier < ApplicationRecord
     has_many :shops
     has_many :comments, dependent: :destroy
     has_many :recommends, dependent: :destroy
+    has_many :item_images, dependent: :destroy
 end
