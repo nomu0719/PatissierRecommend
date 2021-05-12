@@ -25,6 +25,7 @@ class ShopsController < ApplicationController
   def show
     @shop = Shop.find(params[:id])
     @comment = Comment.new
+    @item_image = ItemImage.new
   end
 
   def destroy

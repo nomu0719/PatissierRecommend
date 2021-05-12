@@ -4,6 +4,10 @@
 <p>TEL: <%= @shop.telephone_number %></p>
 <p>店舗概要: <%= @shop.introduction %></p>
 <p>URL: <%= @shop.url %></p>
+<% @shop.item_images.each do |item_image| %>
+ 商品画像<%= attachment_image_tag item_image, :item_image %>
+<% end %>
+
 <% if @shop.patissier == current_patissier %>
 <%= link_to "編集する", edit_shop_path(@shop) %>
 <%= link_to "削除する", shop_path(@shop), method: :delete %>
@@ -46,6 +50,10 @@
 <%= form_with(model:[@shop,@comment],local: true)do |f| %>
 <%= f.text_area :comment,placeholder: "コメントをここに" %>
   <%= f.submit "送信する" %>
+<% end %>
+<%= form_with(model:[@shop,@item_image],local: true)do |f| %>
+ <%= f.attachment_field :item_image %>
+ <%= f.submit '商品画像投稿' %>
 <% end %>
 <% end %>
 <%= link_to "一覧へ戻る", shops_path(@shop) %>
