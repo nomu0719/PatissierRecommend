@@ -27,6 +27,9 @@ class ShopsController < ApplicationController
     @comment = Comment.new
     @item_image = ItemImage.new
   end
+  def recommend_ranking
+      @all_ranks = Shop.find(Recommend.group(:shop_id).order('count(shop_id) desc').limit(3).pluck(:shop_id))
+  end
 
   def destroy
     @shop = Shop.find(params[:id])

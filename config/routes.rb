@@ -12,6 +12,9 @@ Rails.application.routes.draw do
  root to: 'homes#top'
  
  resources :shops do
+   collection do 
+     get 'recommend_ranking'
+    end
    resources :item_images, only: [:create, :destroy]
    resources :comments, only: [:create, :destroy]
    resource :recommends, only: [:create, :destroy]
