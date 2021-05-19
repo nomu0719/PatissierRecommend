@@ -1,59 +1,102 @@
-<P>店名: <%= @shop.name %></P>
-<%= attachment_image_tag @shop, :image %>
-<p>住所: <%= @shop.address %></p>
-<p>TEL: <%= @shop.telephone_number %></p>
-<p>店舗概要: <%= @shop.introduction %></p>
-<p>URL: <%= @shop.url %></p>
-<% @shop.item_images.each do |item_image| %>
- 商品画像<%= attachment_image_tag item_image, :item_image %>
-<% end %>
-
-<% if @shop.patissier == current_patissier %>
-<%= link_to "編集する", edit_shop_path(@shop) %>
-<%= link_to "削除する", shop_path(@shop), method: :delete %>
-<% end %>
-<% if patissier_signed_in? %>
-  <% if @shop.recommend_by?(current_patissier) %>
-  <%= link_to shop_recommends_path(@shop), method: :delete do %>
-  おすすめ取り消し
-  <% end %>
-  <% else %>
-  <%= link_to shop_recommends_path(@shop), method: :post do %>
-  おすすめする
-  <% end %>
-  <% end %>
-  <% elsif user_signed_in? %>
-  <% if @shop.favorited_by?(current_user) %>
-    <p>
-      <%= link_to shop_favorites_path(@shop), method: :delete do %>
-        行きたいリストから削除
-      <% end %>
-    </p>
-    <% else %>
-    <p>
-      <%= link_to shop_favorites_path(@shop), method: :post do %>
-        行きたいリストに追加
-      <% end %>
+<div class = "container  mt-1">
+  <div class="row">
+    <div class="col-md-4 text-center pt-3">
+      <%= attachment_image_tag @shop, :image, :fill, 300, 300  %>
+      </div>
+    <div class="col-md-6 text-left pt-3 offset-1">
+      <table class="table">
+        <tr>
+          <th>店名</th>
+          <td><%= @shop.name %></td>
+        </tr>
+        <tr>
+          <th>住所</th>
+          <td><%= @shop.address %></td>
+        </tr>
+        <tr>
+          <th class="text-nowrap">おすすめ</th>
+          <td><%= @shop.recommends.count %>人
+          <% if patissier_signed_in? %>
+            <% if @shop.recommend_by?(current_patissier) %>
+              <%= link_to "おすすめ取り消し", shop_recommends_path(@shop), method: :delete, class: "btn btn-outline-danger" %>
+            <% else %>
+            <%= link_to "おすすめする", shop_recommends_path(@shop), method: :post, class: "btn btn-outline-success" %>
+            <% end %>
+          <% end %></td>
+        </tr>
+        <tr>
+          <th>ポイント</th>
+          <td><%= @shop.introduction %>
+          </td>
+        </tr>
+        <tr>
+          <th>URL</th>
+          <td  class="text-break"><%= Rinku.auto_link(@shop.url, :all, 'target="_blank"').html_safe %></td>
+        </tr>
+        <% if @shop.patissier == current_patissier %>
+        <tr>
+          <th></th>
+          <td>
+          　  <%= link_to "編集する", edit_shop_path(@shop), class: "btn btn-outline-success" %>
+             <%= link_to "削除する", shop_path(@shop), method: :delete, class: "btn btn-outline-danger" %>
+          </td>
+        </tr>
+        <% end %>
+        <% if user_signed_in? %>
+        <tr>
+          <th>リスト</th>
+          <td>
+              <% if @shop.favorited_by?(current_user) %>
+                <%= link_to "削除", shop_favorites_path(@shop), method: :delete, class: "btn btn-outline-success"  %>
+              <% else %>
+                <%= link_to "追加", shop_favorites_path(@shop), method: :post, class: "btn btn-outline-danger" %>
+              <% end %>
+          </td>
+        </tr>
+        <% end %>
+      </table>
+    </div>
+    <div class="col-md-12">
+      <% @shop.item_images.each do |item_image| %>
+       <%= attachment_image_tag item_image, :item_image, :fill, 200, 200 %>
+       <% if item_image.patissier == current_patissier %>
+        <%= link_to "消去",shop_item_image_path(item_image.shop,item_image),method: :delete, class: "btn btn-outline-danger" %>
        <% end %>
-
-<% end %>
-<p>おすすめの数</p>
-<%= @shop.recommends.count %>
-<p>コメント件数:<%= @shop.comments.count %></p>
-<% @shop.comments.each do |comment| %>
-<%= comment.comment %>
-<% if comment.patissier == current_patissier %>
-<%= link_to "削除",shop_comment_path(comment.shop,comment),method: :delete %>
-<% end %>
-<% end %>
-<% if patissier_signed_in? %>
-<%= form_with(model:[@shop,@comment],local: true)do |f| %>
-<%= f.text_area :comment,placeholder: "コメントをここに" %>
-  <%= f.submit "送信する" %>
-<% end %>
-<%= form_with(model:[@shop,@item_image],local: true)do |f| %>
- <%= f.attachment_field :item_image %>
- <%= f.submit '商品画像投稿' %>
-<% end %>
-<% end %>
-<%= link_to "一覧へ戻る", shops_path(@shop) %>
+      <% end %>
+      <div class="pt-4">
+      <% if patissier_signed_in? %>
+        <%= form_with(model:[@shop,@item_image],local: true)do |f| %>
+          <%= f.attachment_field :item_image %>
+          <div class="pt-2">
+          <%= f.submit '商品画像投稿', class: "btn btn-outline-success" %>
+          </div>
+        <% end %>
+      <% end %>
+      </div>
+    </div>
+    <div class="col-md-10 mt-3 offset-1">
+      <p>コメント件数:<%= @shop.comments.count %></p>
+      <table class="table">
+        <% @shop.comments.each do |comment| %>
+        <tr>
+          <td>
+            <%= comment.comment %>
+            <% if comment.patissier == current_patissier %>
+              <%= link_to "削除",shop_comment_path(comment.shop,comment),method: :delete %>
+            <% end %>
+          </td>
+        </tr>
+        <% end %>
+      </table>
+      <% if patissier_signed_in? %>
+        <%= form_with(model:[@shop,@comment],local: true)do |f| %>
+          <%= f.text_area :comment,placeholder: "おすすめのポイントなど", size: "40x5" %></br>
+          <%= f.submit "送信する", class: "btn btn-outline-success" %>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="col-md-6 text-center btn-group-vertical offset-3 mt-3">
+      <%= link_to "一覧へ戻る", shops_path(@shop), class: "btn btn-outline-success"  %>
+    </div>
+  </div>
+</div>

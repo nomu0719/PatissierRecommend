@@ -23,13 +23,15 @@
       <li>
         <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
       </li>
-      
+
     <% end %>
     <% if patissier_signed_in? %>
       <li>
         <%= link_to "パティシエログアウト", destroy_patissier_session_path, method: :delete %>
       </li>
-     
+      
+<%= link_to "店舗登録する", new_shop_path %>
+
     <% end %>
      </ul>
           </div>
@@ -37,5 +39,10 @@
       </nav>
     </header>
     <%= yield %>
+     <footer>
+          <div class='mx-auto text-center mt-5'>
+            <p>Copyright © 2021 Patissierrecommend Inc. All Rights Reserved.</p>
+          </div>
+    </footer>
   </body>
 </html>
