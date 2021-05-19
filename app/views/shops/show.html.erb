@@ -6,7 +6,7 @@
     <div class="col-md-6 text-left pt-3 offset-1">
       <table class="table">
         <tr>
-          <th>店名</th>
+          <th>店名<%= @shop.longitude %></th>
           <td><%= @shop.name %></td>
         </tr>
         <tr>
@@ -56,6 +56,42 @@
         <% end %>
       </table>
     </div>
+    <div id="map"></div>
+
+
+<script>
+  let map;
+
+  function initMap() {
+    // geocoderを初期化
+    geocoder = new google.maps.Geocoder()
+
+    map = new google.maps.Map(document.getElementById('map'), {
+      // コントローラーで定義した変数から緯度経度を呼び出し、マップの中心に表示
+      center: {
+        lat: gon.shop.latitude,
+        lng: gon.shop.longitude
+      },
+      // マップの倍率はお好みで
+      zoom: 14,
+    });
+
+    marker = new google.maps.Marker({
+      // コントローラーで定義した変数から緯度経度を呼び出し、マーカーを立てる
+      position: {
+        lat: gon.shop.latitude,
+        lng: gon.shop.longitude
+      },
+      map: map
+    });
+  }
+</script>
+
+<script async defer
+      src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&callback=initMap">
+</script>
+    
+    
     <div class="col-md-12">
       <% @shop.item_images.each do |item_image| %>
        <%= attachment_image_tag item_image, :item_image, :fill, 200, 200 %>

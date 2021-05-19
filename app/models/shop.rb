@@ -12,5 +12,8 @@ class Shop < ApplicationRecord
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?
   end
+  #住所に経度緯度追加
+  geocoded_by :address
+  after_validation :geocode, if: :address_changed?
   attachment :image
 end

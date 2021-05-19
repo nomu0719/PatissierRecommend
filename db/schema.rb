@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_12_052426) do
+ActiveRecord::Schema.define(version: 2021_05_19_125724) do
 
   create_table "comments", force: :cascade do |t|
     t.integer "patissier_id"
@@ -66,6 +66,8 @@ ActiveRecord::Schema.define(version: 2021_05_12_052426) do
     t.integer "patissier_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "latitude"
+    t.float "longitude"
   end
 
   create_table "users", force: :cascade do |t|

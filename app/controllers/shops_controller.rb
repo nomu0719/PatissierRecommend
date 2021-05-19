@@ -26,6 +26,7 @@ class ShopsController < ApplicationController
     @shop = Shop.find(params[:id])
     @comment = Comment.new
     @item_image = ItemImage.new
+    gon.shop = @shop
   end
   def recommend_ranking
       @all_ranks = Shop.find(Recommend.group(:shop_id).order('count(shop_id) desc').limit(3).pluck(:shop_id))
@@ -38,6 +39,6 @@ class ShopsController < ApplicationController
   end
   private
   def shop_params
-    params.require(:shop).permit(:name, :address, :image, :telephone_number, :introduction, :url)
+    params.require(:shop).permit(:name, :address, :image, :telephone_number, :introduction, :url, :longitude, :latitude)
   end
 end
