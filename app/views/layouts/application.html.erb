@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Patissierrecommend</title>
+    <title>PatissierRecommend</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -13,7 +13,7 @@
   <body>
      <header class="shadow-sm">
       <nav class="navbar navbar-expand-lg navbar-light ">
-             <a class="navbar-brand" href="/"><span>patissier</span></a>
+             <a class="navbar-brand" href="/"><%= image_tag asset_path("logo.png"), class: "logo" %></a>
              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -42,7 +42,7 @@
     <%= yield %>
      <footer>
           <div class='mx-auto text-center mt-5'>
-            <p>Copyright © 2021 Patissierrecommend Inc. All Rights Reserved.</p>
+            <p>Copyright © 2021 PatissierRecommend Inc. All Rights Reserved.</p>
           </div>
     </footer>
   </body>
