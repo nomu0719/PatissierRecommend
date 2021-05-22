@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'patissiers/show'
   devise_for :patissiers, controllers: {
   sessions:      'patissiers/sessions',
   passwords:     'patissiers/passwords',
@@ -10,6 +11,7 @@ Rails.application.routes.draw do
   registrations: 'users/registrations'
 }
  root to: 'homes#top'
+ resources :patissiers, only: [:show, :index]
  
  resources :shops do
    collection do 

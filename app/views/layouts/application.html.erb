@@ -30,7 +30,9 @@
       <li>
         <%= link_to "パティシエログアウト", destroy_patissier_session_path, method: :delete %>
       </li>
-      
+      <li>
+        <%= link_to "マイページ", patissier_path(current_patissier.id) %>
+      </li>
 <%= link_to "店舗登録する", new_shop_path %>
 
     <% end %>
