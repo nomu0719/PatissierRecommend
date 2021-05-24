@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'users/show'
   get 'patissiers/show'
   devise_for :patissiers, controllers: {
   sessions:      'patissiers/sessions',
@@ -12,7 +13,7 @@ Rails.application.routes.draw do
 }
  root to: 'homes#top'
  resources :patissiers, only: [:show, :index]
- 
+ resources :users, only: [:show]
  resources :shops do
    collection do 
      get 'recommend_ranking'
