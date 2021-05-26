@@ -66,7 +66,8 @@ gem 'devise'
 #画像投稿
 gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
-
+#検索機能
+gem 'ransack'
 #非同期通信
 gem 'jquery-rails'
 #ブートストラップ

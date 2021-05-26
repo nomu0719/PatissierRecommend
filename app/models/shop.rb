@@ -1,6 +1,8 @@
 class Shop < ApplicationRecord
   validates :name, :address,:introduction, presence: true
   
+  
+  
   belongs_to :patissier
   has_many :comments, dependent: :destroy
   has_many :item_images, dependent: :destroy

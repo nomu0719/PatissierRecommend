@@ -1,4 +1,11 @@
 <div class ="container mt-1">
+  <div class ="text-right">
+    <%= search_form_for @q do |f| %>
+     <%= f.label :name_or_address, "店舗名や住所で検索できます" %>
+     <%= f.search_field :name_or_address_cont %>
+     <%= f.submit "検索" %>
+    <% end %>
+  </div>
   <div class="row">
     <% @shops.each do |shop| %>
     <div class="col-md-5 text-center pt-3 md-offset-1">
