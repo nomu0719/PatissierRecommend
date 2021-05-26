@@ -73,10 +73,14 @@ gem 'jquery-rails'
 gem 'bootstrap', '~> 4.5'
 gem 'jquery-rails'
 gem 'font-awesome-sass', '~> 5.13'
+#urlのリンク化
 gem 'rinku'
+#住所の座標入手
 gem 'geocoder'
 gem 'gon'
 gem 'dotenv-rails'
+#エラーメッセージ日本語化
+gem 'rails-i18n'
 group :production do
   gem 'mysql2'
 end

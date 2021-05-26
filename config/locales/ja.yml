@@ -1,0 +1,6 @@
+ja:
+  activerecord:
+    shops:
+      address: 住所
+      introduction: 紹介文
+      name: 店舗名
