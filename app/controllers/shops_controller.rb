@@ -6,8 +6,11 @@ class ShopsController < ApplicationController
   def create
     @shop = Shop.new(shop_params)
     @shop.patissier_id = current_patissier.id
-    @shop.save
-    redirect_to shops_path
+    if @shop.save
+      redirect_to shops_path
+    else
+      render :new
+    end
   end
   def edit
     @shop = Shop.find(params[:id]) 

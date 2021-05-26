@@ -4,7 +4,7 @@ class CommentsController < ApplicationController
     comment = current_patissier.comments.new(comment_params)
     comment.shop_id = shop.id
     comment.save
-    redirect_to shop_path(shop)
+      redirect_to shop_path(shop)
   end
 
   def destroy

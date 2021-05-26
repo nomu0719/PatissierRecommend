@@ -1,0 +1,5 @@
+<% if shop.recommend_by?(current_patissier) %>
+   <%= link_to "おすすめ取り消し", shop_recommends_path(shop), method: :delete, remote: true, class: "btn btn-outline-danger" %>
+ <% else %>
+  <%= link_to "おすすめする", shop_recommends_path(shop), method: :post, remote: true, class: "btn btn-outline-success" %>
+<% end %>
