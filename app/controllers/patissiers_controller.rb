@@ -1,4 +1,5 @@
 class PatissiersController < ApplicationController
+   before_action :authenticate_patissier!
   def show
     @patissier = Patissier.find(params[:id])
     @shop = @patissier.shops
