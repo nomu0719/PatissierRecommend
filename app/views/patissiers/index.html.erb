@@ -1,32 +1,34 @@
 <div class ="container mt-1">
   <div class="row">
-<% @shops.each do |shop| %>
-<% if shop.patissier.id == current_patissier.id %>
-    <div class="col-md-4 text-center pt-3 offset-1">
-      <%= link_to shop_path(shop.id) do %>
-        <h5><%= shop.name %></h5>
-        <%= attachment_image_tag shop, :image, :fill, 250, 250 %>
+    <% @shops.each do |shop| %>
+    <% if shop.patissier.id == current_patissier.id %>
+        <div class="col-md-4 text-center pt-3 offset-1">
+          <%= link_to shop_path(shop.id) do %>
+            <h5><%= shop.name %></h5>
+            <%= attachment_image_tag shop, :image, :fill, 250, 250, fallback: asset_path("no_image.png"), size:'250x250' %>
+          <% end %>
+        </div>
+        <div class="col-md-4 text-left mt-5  pt-3 offset-1">
+          <table class="table">
+            <tr>
+              <th>住所</th>
+              <td><%= shop.address %></td>
+            </tr>
+            <tr>
+              <th>おすすめ数</th>
+              <td><%= shop.recommends.count %></td>
+            </tr>
+            <tr>
+              <th>おすすめポイント</th>
+              <td><%= shop.introduction %></td>
+            </tr>
+            <tr>
+              <th>URL</th>
+              <td  class="text-break"><%= Rinku.auto_link(shop.url, :all, 'target="_blank"').html_safe %></td>
+            </tr>
+          </table>
+        </div>
+        <% end %>
       <% end %>
     </div>
-    <div class="col-md-4 text-left mt-5  pt-3 offset-1">
-      <table class="table">
-        <tr>
-          <th>住所</th>
-          <td><%= shop.address %></td>
-        </tr>
-        <tr>
-          <th>おすすめ数</th>
-          <td><%= shop.recommends.count %></td>
-        </tr>
-        <tr>
-          <th>おすすめポイント</th>
-          <td><%= shop.introduction %></td>
-        </tr>
-        <tr>
-          <th>URL</th>
-          <td  class="text-break"><%= Rinku.auto_link(shop.url, :all, 'target="_blank"').html_safe %></td>
-        </tr>
-      </table>
-    </div>
-    <% end %>
-  <% end %>
+  </div>

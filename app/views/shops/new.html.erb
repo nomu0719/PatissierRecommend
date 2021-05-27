@@ -1,25 +1,25 @@
 <div class="container mt-1">
   <div class="row">
     <div class="col-md-8 pt-3 offset-2">
-       <%= render 'layouts/errors', obj:@shop %>
+      <%= render 'layouts/errors', obj:@shop %>
       <h1>店舗登録画面</h1>
-      <%= form_with model: @shop, local:true do |f| %>
-      <h4>店舗外観画像</h4>
-      <%= f.attachment_field :image %>
-      <h4>ショップ名</h4>
-  <%= f.text_field :name %>
-  <h4>店舗概要</h4>
-  <%= f.text_area :introduction %>
-  <h4>電話番号</h4>
-  <%= f.text_field :telephone_number %>
-  <h4>住所</h4> 
-  <%= f.text_area :address %>
-  <h4>お店のURL</h4> 
-  <%= f.text_field :url %>
-  <div class="col-md-6 text-center btn-group-vertical offset-3 mt-3">
-  <%= f.submit "投稿する", class: "btn btn-outline-success"  %>
+        <%= form_with model: @shop, local:true do |f| %>
+          <h4>店舗外観画像</h4>
+          <%= f.attachment_field :image %>
+          <h4>ショップ名</h4>
+          <%= f.text_field :name, size: "30x5" %>
+          <h4>おすすめのポイント</h4>
+          <%= f.text_area :introduction, size: "30x5" %>
+          <h4>電話番号</h4>
+          <%= f.text_field :telephone_number %>
+          <h4>住所</h4> 
+          <%= f.text_area :address, size: "30x2" %>
+          <h4>お店のURL</h4> 
+          <%= f.text_field :url, size: "30x2" %>
+          <div class="col-md-6 text-center btn-group-vertical offset-3 mt-3">
+            <%= f.submit "投稿する", class: "btn btn-outline-success"  %>
+          </div>
+        </div>
+      <% end %> 
   </div>
-  </div>
-<% end %>
 </div>
-  </div>
