@@ -20,22 +20,25 @@
           <% end %>
         </div>
         <div class="col-md-4 text-left mt-5  pt-3 offset-1">
-          <table class="table">
+          <table class="table" style="table-layout:fixed;">
             <tr>
-              <th style="width:25%">住所</th>
-              <td style="width:75%"><%= shop.address %></td>
+              <th style="width:100px;">住所</th>
+              <td style="width:200px;"><%= shop.address %></td>
             </tr>
             <tr>
               <th>おすすめ数</th>
               <td><%= shop.recommends.count %></td>
             </tr>
             <tr>
-              <th class="text-nowrap">おすすめポイント</th>
+              <th>おすすめポイント</th>
               <td><%= shop.introduction %></td>
             </tr>
           </table>
         </div>
       <% end %>
     <% end %>
+    <div class="col-md-6 text-center btn-group-vertical offset-3 mt-3">
+     <%= paginate @recommend_list %>
+    </div>
   </div>
 </div>

@@ -82,6 +82,8 @@ gem 'gon'
 gem 'dotenv-rails'
 #エラーメッセージ日本語化
 gem 'rails-i18n'
+#ページング機能
+gem 'kaminari'
 group :production do
   gem 'mysql2'
 end

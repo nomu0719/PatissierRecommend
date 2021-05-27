@@ -27,7 +27,7 @@
               <% if patissier_signed_in? %>
               <li><%= link_to "一覧表示", shops_path, class: "btn btn-outline-secondary" %></li>
               <li><%= link_to "マイページ", patissier_path(current_patissier.id), class: "btn btn-outline-secondary" %></li>
-              <li><%= link_to "店舗登録する", new_shop_path %></li>
+              <li><%= link_to "店舗登録する", new_shop_path, class: "btn btn-outline-secondary"  %></li>
               <li><%= link_to "パティシエログアウト", destroy_patissier_session_path, method: :delete, class: "btn btn-outline-secondary" %></li>
             <% end %>
              </ul>

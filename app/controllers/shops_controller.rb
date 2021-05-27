@@ -23,7 +23,7 @@ class ShopsController < ApplicationController
   end
   def index
      @q = Shop.ransack(params[:q])
-     @shops = @q.result(distinct: true)
+     @shops = @q.result(distinct: true).page(params[:page]).order("id DESC")
     
   end
 
@@ -34,7 +34,7 @@ class ShopsController < ApplicationController
     gon.shop = @shop
   end
   def recommend_ranking
-      @all_ranks = Shop.find(Recommend.group(:shop_id).order('count(shop_id) desc').limit(3).pluck(:shop_id))
+      @all_ranks = Shop.find(Recommend.group(:shop_id).order('count(shop_id) desc').limit(5).pluck(:shop_id))
   end
 
   def destroy
