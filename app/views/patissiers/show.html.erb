@@ -1,13 +1,41 @@
 <div class = "container  mt-1">
   <div class="row pt-4">
     <div class="col-md-12 pt-3">
-    <h3> <%= @patissier.name %>さんのページ</h3>
+      <h3> <%= @patissier.name %>さんのページ</h3>
     </div>
     <div class="col-md-12 text-center pt-3">
-      <%= link_to "おすすめリストを見る", new_user_registration_path, class: "btn btn-outline-success" %>
-      <%= link_to "登録した店舗を見る", patissiers_path, class: "btn btn-outline-success" %>
-      <%= link_to "ランキングを見る", recommend_ranking_shops_path, class: "btn btn-outline-success" %>
-      
-      </div>
+      <div class="pt-3"><%= link_to "登録した店舗を見る", patissiers_path, class: "btn btn-outline-success" %></div>
+      <div class="pt-3"><%= link_to "ランキングを見る", recommend_ranking_shops_path, class: "btn btn-outline-success" %></div>
+      <div class="pt-3"><%= link_to "一覧表示", shops_path, class: "btn btn-outline-success" %></div>
+    </div>
+    <div class="col-md-12 pt-3">
+      <h3> <%= @patissier.name %>さんのおすすめ一覧</h3>
+    </div>
+  　<% if @recommend_list.present? %>
+      <% @recommend_list.each do |shop| %>
+        <div class="col-md-5 text-center pt-3 md-offset-1">
+          <%= link_to shop_path(shop.id) do %>
+            <h5><%= shop.name %></h5>
+            <%= attachment_image_tag shop, :image, :fill, 250, 250, fallback: asset_path("no_image.png"), size:'250x250' %>
+          <% end %>
+        </div>
+        <div class="col-md-4 text-left mt-5  pt-3 offset-1">
+          <table class="table">
+            <tr>
+              <th style="width:25%">住所</th>
+              <td style="width:75%"><%= shop.address %></td>
+            </tr>
+            <tr>
+              <th>おすすめ数</th>
+              <td><%= shop.recommends.count %></td>
+            </tr>
+            <tr>
+              <th class="text-nowrap">おすすめポイント</th>
+              <td><%= shop.introduction %></td>
+            </tr>
+          </table>
+        </div>
+      <% end %>
+    <% end %>
   </div>
 </div>

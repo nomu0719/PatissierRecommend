@@ -19,29 +19,19 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ml-auto">
-
-     <% if user_signed_in? %>
-      <li>
-      <%= link_to 'マイページ', user_path(current_user.id) %>
-    </li>
-      <li>
-        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-      </li>
-
-    <% end %>
-    <% if patissier_signed_in? %>
-      <li>
-        <%= link_to "パティシエログアウト", destroy_patissier_session_path, method: :delete %>
-      </li>
-      <li>
-        <%= link_to "マイページ", patissier_path(current_patissier.id) %>
-      </li>
-<%= link_to "店舗登録する", new_shop_path %>
-
-    <% end %>
-     </ul>
+              <% if user_signed_in? %>
+              <li><%= link_to "一覧表示", shops_path, class: "btn btn-outline-secondary" %></li>
+              <li><%= link_to 'マイページ', user_path(current_user.id), class: "btn btn-outline-secondary" %></li>
+              <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn btn-outline-secondary" %></li>
+              <% end %>
+              <% if patissier_signed_in? %>
+              <li><%= link_to "一覧表示", shops_path, class: "btn btn-outline-secondary" %></li>
+              <li><%= link_to "マイページ", patissier_path(current_patissier.id), class: "btn btn-outline-secondary" %></li>
+              <li><%= link_to "店舗登録する", new_shop_path %></li>
+              <li><%= link_to "パティシエログアウト", destroy_patissier_session_path, method: :delete, class: "btn btn-outline-secondary" %></li>
+            <% end %>
+             </ul>
           </div>
-        </div>
       </nav>
     </header>
     <%= yield %>
