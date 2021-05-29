@@ -18,8 +18,12 @@ class ShopsController < ApplicationController
 
   def update
     shop = Shop.find(params[:id])
-    shop.update(shop_params)
-    redirect_to shop_path(shop)
+    @shop = shop
+    if shop.update(shop_params)
+      redirect_to shop_path(shop)
+    else
+      render :edit
+    end
   end
   def index
      @q = Shop.ransack(params[:q])

@@ -3,5 +3,17 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 #map {
   height: 300px;
-  width: 350px;
+  width: 300px;
+}
+.shop_name, .shop_telephone_number{
+  width: 80%;
+  height: 40px;
+}
+.shop_url, .shop_address{
+   width: 80%;
+  height: 60px;
+}
+.shop_introduction{
+   width: 80%;
+  height: 80px;
 }

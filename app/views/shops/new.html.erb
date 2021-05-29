@@ -1,23 +1,23 @@
 <div class="container mt-1">
   <div class="row">
-    <div class="col-md-8 pt-3 offset-2">
+    <div class="col-md-6 pt-3 offset-3">
       <%= render 'layouts/errors', obj:@shop %>
       <h1>店舗登録画面</h1>
         <%= form_with model: @shop, local:true do |f| %>
           <h4>店舗外観画像</h4>
           <%= f.attachment_field :image %>
           <h4>ショップ名</h4>
-          <%= f.text_field :name, size: "30x5" %>
+          <%= f.text_field :name, class: "shop_name"  %>
           <h4>おすすめのポイント</h4>
-          <%= f.text_area :introduction, size: "30x5" %>
+          <%= f.text_area :introduction, class: "shop_introduction"  %>
           <h4>電話番号</h4>
-          <%= f.text_field :telephone_number %>
+          <%= f.text_field :telephone_number, class: "shop_telephone_number"  %>
           <h4>住所</h4> 
-          <%= f.text_area :address, size: "30x2" %>
+          <%= f.text_area :address, class: "shop_address"  %>
           <h4>お店のURL</h4> 
-          <%= f.text_field :url, size: "30x2" %>
-          <div class="col-md-6 text-center btn-group-vertical offset-3 mt-3">
-            <%= f.submit "投稿する", class: "btn btn-outline-success"  %>
+          <%= f.text_field :url, class: "shop_url" %>
+          <div class="col-md-6 text-center btn-group-vertical col-md-offset-3 mt-3">
+            <%= f.submit "投稿する", class: "btn btn-outline-success" %>
           </div>
         </div>
       <% end %> 
