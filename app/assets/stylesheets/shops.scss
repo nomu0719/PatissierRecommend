@@ -1,10 +1,15 @@
 // Place all the styles related to the Shops controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#maps {
+     height: 900px;
+     width: 900px;
+}
 #map {
   height: 300px;
   width: 300px;
 }
+
 .shop_name, .shop_telephone_number{
   width: 80%;
   height: 40px;

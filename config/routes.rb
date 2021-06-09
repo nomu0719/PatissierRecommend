@@ -16,6 +16,7 @@ Rails.application.routes.draw do
  resources :users, only: [:show]
  resources :shops do
    collection do 
+     get 'maps'
      get 'recommend_ranking'
     end
    resources :item_images, only: [:create, :destroy]

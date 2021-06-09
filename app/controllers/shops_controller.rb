@@ -15,6 +15,9 @@ class ShopsController < ApplicationController
   def edit
     @shop = Shop.find(params[:id]) 
   end
+  def maps
+    gon.shops = Shop.all
+  end
 
   def update
     shop = Shop.find(params[:id])
