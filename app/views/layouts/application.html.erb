@@ -5,7 +5,7 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <%= include_gon %> 
+    <%= include_gon %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -18,16 +18,15 @@
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav ml-auto">
+            <ul class="navbar-nav  ml-auto">
+               <li><%= link_to "現在地から探す", maps_shops_path, class: "btn btn-outline-secondary" %></li>
+               <li><%= link_to "一覧表示", shops_path, class: "btn btn-outline-secondary" %></li>
+               <li><%= link_to "ランキング表示する", recommend_ranking_shops_path, class: "btn btn-outline-secondary"  %></li>
               <% if user_signed_in? %>
-              <li><%= link_to "一覧表示", shops_path, class: "btn btn-outline-secondary" %></li>
-              <li><%= link_to "ランキング表示する", recommend_ranking_shops_path, class: "btn btn-outline-secondary"  %></li>
               <li><%= link_to 'マイページ', user_path(current_user.id), class: "btn btn-outline-secondary" %></li>
               <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn btn-outline-secondary" %></li>
               <% end %>
               <% if patissier_signed_in? %>
-              <li><%= link_to "一覧表示", shops_path, class: "btn btn-outline-secondary" %></li>
-              <li><%= link_to "ランキング表示する", recommend_ranking_shops_path, class: "btn btn-outline-secondary"  %></li>
               <li><%= link_to "マイページ", patissier_path(current_patissier.id), class: "btn btn-outline-secondary" %></li>
               <li><%= link_to "店舗登録する", new_shop_path, class: "btn btn-outline-secondary"  %></li>
               <li><%= link_to "パティシエログアウト", destroy_patissier_session_path, method: :delete, class: "btn btn-outline-secondary" %></li>
