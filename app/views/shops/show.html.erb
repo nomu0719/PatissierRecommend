@@ -29,7 +29,7 @@
           <th>URL</th>
           <td  class="text-break"><%= Rinku.auto_link(@shop.url, :all, 'target="_blank"').html_safe %></td>
         </tr>
-        <% if @shop.patissier == current_patissier %>
+       
         <tr>
           <th></th>
           <td>
@@ -37,7 +37,7 @@
              <%= link_to "削除する", shop_path(@shop), method: :delete, class: "btn btn-outline-danger" %>
           </td>
         </tr>
-        <% end %>
+        
         <% if user_signed_in? %>
         <tr>
           <th>リスト</th>
