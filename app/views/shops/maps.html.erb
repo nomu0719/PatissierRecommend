@@ -13,7 +13,7 @@
       let infoWindow = []; // 吹き出しを複数表示させたいので、配列化
       const shops = gon.shops; // コントローラーで定義したインスタンス変数を変数に代入
       
-      function initMap(){
+      function initMaps(){
         // 現在位置の特定
         navigator.geolocation.getCurrentPosition(function (position){
           // LatLngに位置座標を代入
@@ -64,7 +64,7 @@
       </script>
       
       <script async defer
-            src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&callback=initMap">
+            src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&callback=initMaps">
       </script>
   　</div>
   </div>
