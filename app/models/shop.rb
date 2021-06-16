@@ -1,5 +1,5 @@
 class Shop < ApplicationRecord
-  validates :name, :address,:introduction,:latitude,:longitude, presence: true
+  validates :name, :address,:introduction, presence: true
   
   
   
