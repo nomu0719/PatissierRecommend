@@ -9,7 +9,7 @@ class PatissiersController < ApplicationController
   end
   def index
     @patissier = current_patissier
-    @shops = Shop.all
+    @shops = @patissier.shops
     @shops = Kaminari.paginate_array(@shops).page(params[:page])
   end
 end
