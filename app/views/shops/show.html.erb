@@ -1,3 +1,4 @@
+
 <div class="container mt-1">
   <div class="row">
     <div class="col-md-4 text-center pt-3">
@@ -109,19 +110,10 @@
     <div class="col-md-10 mt-3 offset-1">
       <p>コメント件数:<%= @shop.comments.count %></p>
       <table class="table">
-        <% @shop.comments.each do |comment| %>
-        <tr>
-          <td>
-            <%= comment.comment %>
-            <% if comment.patissier == current_patissier %>
-              <%= link_to "削除",shop_comment_path(comment.shop,comment),method: :delete %>
-            <% end %>
-          </td>
-        </tr>
-        <% end %>
+        <%= render "comments/comment", shop: @shop %>
       </table>
       <% if patissier_signed_in? %>
-        <%= form_with(model:[@shop,@comment],local: true)do |f| %>
+        <%= form_with model:[@shop,@comment] do |f| %>
           <%= f.text_area :comment,placeholder: "おすすめのポイントなど", size: "30x5" %></br>
           <%= f.submit "送信する", class: "btn btn-outline-success" %>
         <% end %>

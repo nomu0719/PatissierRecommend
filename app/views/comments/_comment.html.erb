@@ -1,0 +1,10 @@
+        <% shop.comments.each do |comment| %>
+        <tr>
+          <td>
+            <%= comment.comment %>
+            <% if comment.patissier == current_patissier %>
+              <%= link_to "削除",shop_comment_path(comment.shop,comment),method: :delete, remote: true %>
+            <% end %>
+          </td>
+        </tr>
+        <% end %>

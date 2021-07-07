@@ -38,6 +38,7 @@ class ShopsController < ApplicationController
     @shop = Shop.find(params[:id])
     @comment = Comment.new
     @item_image = ItemImage.new
+    @comments = @shop.comments
     gon.shop = @shop
   end
   def recommend_ranking
